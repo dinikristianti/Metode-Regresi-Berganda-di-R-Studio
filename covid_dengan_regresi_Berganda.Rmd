@@ -1,0 +1,59 @@
+---
+title: "Regresi Berganda"
+author: "Prof. Dr. Suhartono, M. Kom @ Dini Kristianti, S. Kom"
+output: html_document
+---
+
+Library yang di butuhkan
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+province=read_excel ("D:/1. kuliah s2/materi pak usman data sains 2/dataset/datasetexcell/province.xlsx")
+attach(province)
+```
+
+
+Tampilan data
+```{r}
+province
+```
+
+```{r}
+model1 <- lm(confirmed~population_kmsquare+deceased+rumahsehat+TTU)
+summary(model1)
+```
+
+
+```{r}
+coefficients(model1)
+```
+```{r}
+confint(model1, level=0.95)
+```
+
+```{r}
+fitted(model1) # Predicted value
+```
+```{r}
+resids <- residuals(model1) #Residuals
+```
+
+```{r}
+anova(model1) # Anova Table
+```
+
+```{r}
+vcov(model1) # Covariance Matrix
+```
+```{r}
+layout(matrix(c(1,2,3,4),2,2))
+```
+```{r}
+plot(model1)
+```
+
+
+
